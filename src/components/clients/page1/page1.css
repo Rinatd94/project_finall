@@ -1,0 +1,13 @@
+/* לתפוס לפי ID */
+#name{
+    background-color:rgb(168, 247, 229);
+    font-family: 'Verdana, Geneva, Tahoma, sans-serif';
+}
+#password{
+    background-color:'#d3d6d8';
+    font-family: 'Verdana, Geneva, Tahoma, sans-serif';
+}
+/* לתפוס לפי שם קלאס */
+/* .class{
+    font-family: 'Verdana, Geneva, Tahoma, sans-serif';
+} */
