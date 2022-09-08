@@ -1,9 +1,14 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './Login.css'
 import { Modal, Button } from 'react-bootstrap'
 
+import {Nav}  from 'react-bootstrap';
+// import Link from 'react-bootstrap';
+import { Link } from "react-router-dom";
+
+
 export function MyModal(props) {
- 
+
   return (
     <>
    
@@ -40,6 +45,27 @@ export function MyModal(props) {
 }
 
 export function MyModal2(props) {
+ const onHide=props.onHide;
+ const [user,setuser]= useState({name:"",lastName:"",passwors:"",phone:"",emil:""});
+ 
+ function update()
+ {
+
+ }
+ 
+ function save()
+  { 
+  onHide();
+  const requestOptions = {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(user)
+};
+fetch('localhost:3030/user/NewUser', requestOptions)
+    .then(response => response.json())
+    .then(data => this.setState({ postId: data.id }));
+ 
+  }
   return (
     <Modal 
       {...props}
@@ -75,7 +101,7 @@ export function MyModal2(props) {
       </Modal.Body>
       <Modal.Footer>
         <Button onClick={props.onHide}>Close</Button>
-        <Button onClick={props.onHide}>enter</Button>
+        <Button onClick={save}>enter</Button>
       </Modal.Footer>
     </Modal>
     
@@ -103,8 +129,19 @@ export default function Login() {
 <MyModal2
         show={modalShow2}
         onHide={() => setModalShow2(false)}
+
+
+
+        
       />
+      <br></br><br></br>
+       <button className='boton'>עובד</button>
+       <nav>
+       
+       <Nav.Link ><Link to='/Employee' >עובד</Link> </Nav.Link>
+     </nav>
     </>
+    
   )
 }
 
